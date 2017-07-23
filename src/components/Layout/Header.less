@@ -4,21 +4,27 @@
   :global .ant-menu-horizontal {
     & > .ant-menu-submenu {
       float: right;
+      height: 60px;
+      line-height: 60px;
+    }
+    & > .ant-menu-submenu :hover{
+      color: #000;
     }
     border: none;
     display: inline-block;
   }
   box-shadow: @shadow-2;
-  width: 1500px;
   position: relative;
   display: flex;
   justify-content: space-between;
   height: 60px;
-  background-color: #293139;
+  // background-color: #293139;
+  background-color: #eb4545;
 
   .rightWarpper {
     display: flex;
     padding-right: 16px;
+   
   }
 
   .button {
@@ -34,6 +40,7 @@
       color: @primary-color;
       background-color: fade(@primary-color, 15%);
     }
+    
   }
 }
   .fold {

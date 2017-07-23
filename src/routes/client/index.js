@@ -1,11 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Link,routerRedux } from 'dva/router'
+import { routerRedux } from 'dva/router'
 import { connect } from 'dva'
 import { Table, message, Button } from 'antd'
 import { config } from '../../utils'
 import styles from './index.less'
 import List from './List'
+import Filter from './Filter'
 import Modal from './Modal'
 
 const Client = ({ location, dispatch, client, loading }) => {
@@ -64,15 +65,64 @@ const Client = ({ location, dispatch, client, loading }) => {
       })
     },
   }
+
+  const filterProps = {
+    filter: {
+      ...location.query,
+    },
+    onFilterChange (value) {
+      dispatch(routerRedux.push({
+        pathname: location.pathname,
+        query: {
+          ...value,
+          page: 1,
+          pageSize,
+        },
+      }))
+    },
+    onSearch (fieldsValue) {
+      fieldsValue.keyword.length ? dispatch(routerRedux.push({
+        pathname: '/user',
+        query: {
+          field: fieldsValue.field,
+          keyword: fieldsValue.keyword,
+        },
+      })) : dispatch(routerRedux.push({
+        pathname: '/user',
+      }))
+    },
+    onAdd () {
+      dispatch({
+        type: 'user/showModal',
+        payload: {
+          modalType: 'create',
+        },
+      })
+    },
+    switchIsMotion () {
+      dispatch({ type: 'user/switchIsMotion' })
+    },
+  }
+
+  const handleDeleteItems = () => {
+    dispatch({
+      type: 'user/multiDelete',
+      payload: {
+        ids: selectedRowKeys,
+      },
+    })
+  }
+
   
   return (
     <div className="content-inner">
+       <Filter {...filterProps} />
       {/* <Button type="primary">
         <a href="/client/create">新建</a>    
       </Button> */}
-      <div style={{border:'1px solid #eb4545',width:60,padding:'6px 10px 6px 15px',background:'#eb4545',borderRadius:4}}>
+      {/* <div style={{border:'1px solid #eb4545',width:60,padding:'6px 10px 6px 15px',background:'#eb4545',borderRadius:4}}>
         <Link to={`client/create`} style={{color:'#fff'}}>新建</Link>
-      </div>
+      </div> */}
       <List {...listProps} />
       {modalVisible && <Modal {...modalProps} />}
     </div>

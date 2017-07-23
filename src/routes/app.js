@@ -78,18 +78,19 @@ const App = ({ children, dispatch, app, loading, location }) => {
   return (
     <div>
       <Helmet>
-        <title>ANTD ADMIN</title>
+        <title>WMS</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="icon" href={logo} type="image/x-icon" />
         {iconFontJS && <script src={iconFontJS}></script>}
         {iconFontCSS && <link rel="stylesheet" href={iconFontCSS} />}
       </Helmet>
       <div className={classnames(styles.layout, { [styles.fold]: isNavbar ? false : siderFold }, { [styles.withnavbar]: isNavbar })}>
-        {!isNavbar ? <aside className={classnames(styles.sider, { [styles.light]: !darkTheme })}>
+        <Header {...headerProps} />
+        
+          {!isNavbar ? <aside className={classnames(styles.sider, { [styles.light]: !darkTheme })}>
           <Sider {...siderProps} />
-        </aside> : ''}
-        <div className={styles.main}>
-          <Header {...headerProps} />
+          </aside> : ''}
+          <div className={styles.main}>
           <Bread {...breadProps} />
           <div className={styles.container}>
             <div className={styles.content}>
@@ -97,7 +98,6 @@ const App = ({ children, dispatch, app, loading, location }) => {
               {/* {children} */}
             </div>
           </div>
-          <Footer />
         </div>
       </div>
     </div>

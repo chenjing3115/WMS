@@ -2,38 +2,63 @@ const { config } = require('./common')
 
 const { apiPrefix } = config
 let database = [
+  // {
+  //   id: '1',
+  //   icon: 'laptop',
+  //   name: 'Dashboard',
+  //   route: '/dashboard',
+  // },
+  // {
+  //   id: '2',
+  //   bpid: '1',
+  //   name: 'Users',
+  //   icon: 'user',
+  //   route: '/user',
+  // },
   {
     id: '1',
-    icon: 'laptop',
-    name: 'Dashboard',
-    route: '/dashboard',
+    name: '首页',
+    icon: 'home',
   },
   {
     id: '2',
-    bpid: '1',
-    name: 'Users',
+    name: '基础数据管理',
     icon: 'user',
-    route: '/user',
   },
   {
-    id: '8',
-    bpid: '1',
+    id: '21',
+    mpid:'2',
+    bpid: '2',
     name: '客户管理',
     icon: 'user',
     route: '/client',
   },
+{
+    id: '22',
+    mpid:'2',
+    bpid: '2',
+    name: '包装代码管理',
+    icon: 'user',
+    route: '/client',
+  },
   {
-    id: '811',
+    id: '111',
     mpid:'-1',
-    bpid: '8',
+    bpid: '1',
     name: '新建客户信息',
     route: '/client/create',
   },
   {
     id: '7',
     bpid: '1',
-    name: 'Posts',
+    name: '规则管理',
     icon: 'shopping-cart',
+  },
+   {
+    id: '71',
+    mpid: '7',
+    bpid: '7',
+    name: '拣货规则',
     route: '/post',
   },
   {
@@ -170,6 +195,8 @@ let database = [
   },
 ]
 
+
+// 后台做权限控制，不同的用户登录现实的左侧列表不同
 module.exports = {
 
   [`GET ${apiPrefix}/menus`] (req, res) {

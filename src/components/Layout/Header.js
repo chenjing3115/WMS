@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Menu, Icon, Popover } from 'antd'
 import styles from './Header.less'
-// import { config } from '../../utils'
+import { config } from '../../utils'
 import Menus from './Menu'
 
 const SubMenu = Menu.SubMenu;
@@ -23,9 +23,9 @@ const Header = ({ user, logout, switchSider, siderFold, isNavbar, menuPopoverVis
 
   return (
     <div className={styles.header}>
-       {/* <img src={config.logo} style={{width:116,height:41,marginLeft:26,marginTop:8}} />    */}
+        <img src={config.logo} style={{width:116,height:41,marginLeft:26,marginTop:8}} />
       {/* <img src={config.logo} style={{maxWidth:'100%',maxHeight:'100%'}}/>   */}
-      <Menu
+      {/* <Menu
         theme="dark"
         mode="horizontal"
         defaultSelectedKeys={['2']}
@@ -40,17 +40,17 @@ const Header = ({ user, logout, switchSider, siderFold, isNavbar, menuPopoverVis
         <Menu.Item key="5">资源管理</Menu.Item>
         <Menu.Item key="6">操作管理</Menu.Item>
         <Menu.Item key="7">规则管理</Menu.Item>
-      </Menu>
+      </Menu> */}
       
       <div className={styles.rightWarpper}>
-        <div className={styles.button}>
+        {/* <div className={styles.button}>
           <Icon type="mail" />
-        </div>
-        <Menu mode="horizontal" onClick={handleClickMenu} style={{background:"#293139",color:'#fff',paddingBottom:10}}>
+        </div> */}
+        <Menu mode="horizontal" onClick={handleClickMenu} style={{background:'#eb4545',color:'#fff',}}>
           <SubMenu style={{
-            float: 'right',
+            float: 'right',right:0,lineHeight:60
           }} title={< span > <Icon type="user" />
-            {user.nr} < /span>}
+            {user.username} < /span>}
           >
             <Menu.Item key="logout">
               退出

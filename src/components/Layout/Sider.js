@@ -2,7 +2,6 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Icon, Switch } from 'antd'
 import styles from './Layout.less'
-import { config } from 'utils'
 import Menus from './Menu'
 
 const Sider = ({ siderFold, darkTheme, location, changeTheme, navOpenKeys, changeOpenKeys, menu }) => {
@@ -16,12 +15,11 @@ const Sider = ({ siderFold, darkTheme, location, changeTheme, navOpenKeys, chang
   }
  return (
     <div>
-      <img src={config.logo} style={{width:116,height:41,marginLeft:26,marginTop:8}} />
       <Menus {...menusProps}/>
-      <div className={styles.switchtheme}>
+      {/* <div className={styles.switchtheme}>
         <span><Icon type="bulb" />Switch Theme</span>
         <Switch onChange={changeTheme} defaultChecked={darkTheme} checkedChildren="Dark" unCheckedChildren="Light" />
-      </div>
+      </div> */}
     </div>
   )
 }

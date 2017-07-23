@@ -34,10 +34,13 @@ body {
   .ant-table {
     .ant-table-thead > tr > th {
       text-align: center;
+      background-color: #eb4545;
+      color: #fff;
     }
 
     .ant-table-tbody > tr > td {
       text-align: center;
+      padding: 6px 8px;
     }
 
     &.ant-table-small {
@@ -53,8 +56,8 @@ body {
 
   .ant-table-pagination {
     float: none!important;
-    display: table;
-    margin: 16px auto !important;
+    // display: table;
+    margin: 40px auto !important;
   }
 
   .ant-popover-inner {
@@ -96,12 +99,19 @@ body {
     }
   }
 
-  .ant-pagination-item {
+  .ant-pagination.mini .ant-pagination-item {
     margin-bottom: 8px;
+    box-shadow: 0 0 4px #eee;
+    margin: 0;
+    min-width: 24px !important;
+    margin-left: 10px;
+    height: 24px  !important;
+    line-height: 24px  !important;
   }
 
   .ant-select-dropdown-menu-item {
-    padding: 12px 16px !important;
+    // padding: 12px 16px !important;
+     padding: 6px 8px !important;
   }
 
   .margin-right {

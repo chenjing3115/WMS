@@ -15,10 +15,10 @@ export default {
     },
     menu: [
       {
-        id: 1,
+        id: 2,
         icon: 'laptop',
-        name: 'Dashboard',
-        router: '/dashboard',
+        name: '客户管理',
+        router: '/client',
       },
     ],
     menuPopoverVisible: false,
@@ -72,7 +72,7 @@ export default {
           },
         })
         if (location.pathname === '/login') {
-          yield put(routerRedux.push('/dashboard'))
+          yield put(routerRedux.push('/client'))
         }
       } else {
         if (config.openPages && config.openPages.indexOf(location.pathname) < 0) {
